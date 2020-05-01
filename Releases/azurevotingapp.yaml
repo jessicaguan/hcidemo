@@ -84,3 +84,18 @@ spec:
   - port: 80
   selector:
     app: azure-vote-front
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vot-front
+  namespace: demo
+spec:
+  type: NodePort
+  selector:
+    app: azure-vote-front
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30007
